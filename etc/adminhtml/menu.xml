@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Acx_UiForm::view_all"
+             title="User List"
+             translate="title"
+             module="Acx_UiForm"
+             sortOrder="10"
+             parent="Magento_CatalogRule::promo"
+             action="uiform/user"
+             resource="Acx_UiForm::management"
+        />
+    </menu>
+</config>

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="uiform_user" resource="default" engine="innodb" comment="User list">
+        <column xsi:type="int" name="user_id" padding="10" unsigned="true" nullable="false" identity="true"
+                comment="User ID"/>
+        <column xsi:type="varchar" name="user_name" length="255" nullable="false" comment="User name"/>
+        <column xsi:type="varchar" name="user_role" length="255" nullable="true" comment="User role"/>
+        <column xsi:type="varchar" name="user_address" length="255" nullable="true" comment="User address"/>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="user_id"/>
+        </constraint>
+    </table>
+</schema>

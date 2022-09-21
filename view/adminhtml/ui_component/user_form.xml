@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">user_form.user_form_data_source</item>
+            <item name="deps" xsi:type="string">user_form.user_form_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">User Information</item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+    </argument>
+    <settings>
+        <buttons>
+            <button name="save" class="Acx\UiForm\Block\Adminhtml\Block\Edit\SaveButton"/>
+            <button name="back" class="Acx\UiForm\Block\Adminhtml\Block\Edit\BackButton"/>
+        </buttons>
+        <namespace>user_form</namespace>
+        <dataScope>data</dataScope>
+        <deps>
+            <dep>user_form.user_form_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="user_form_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">Acx\UiForm\Ui\Component\FormDataProvider</argument>
+            <argument name="name" xsi:type="string">user_form_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">user_id</argument>
+            <argument name="requestFieldName" xsi:type="string">user_id</argument>
+        </argument>
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+        <settings>
+            <submitUrl path="uiform/user/save"/>
+        </settings>
+    </dataSource>
+    <fieldset name="user_details">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="collapsible" xsi:type="boolean">true</item>
+                <item name="opened" xsi:type="boolean">true</item>
+                <item name="label" xsi:type="string" translate="true">User Details</item>
+                <item name="sortOrder" xsi:type="number">20</item>
+            </item>
+        </argument>
+        <hidden name="user_id">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">user</item>
+                    <item name="dataScope" xsi:type="string">user_id</item>
+                </item>
+            </argument>
+        </hidden>
+        <field name="user_name">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">User Name</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">user</item>
+                    <item name="dataScope" xsi:type="string">user_name</item>
+                </item>
+            </argument>
+        </field>
+        <field name="user_role">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">User Role</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">user</item>
+                    <item name="dataScope" xsi:type="string">user_role</item>
+                </item>
+            </argument>
+        </field>
+        <field name="user_address">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">User Address</item>
+                    <item name="formElement" xsi:type="string">textarea</item>
+                    <item name="source" xsi:type="string">user</item>
+                    <item name="dataScope" xsi:type="string">user_address</item>
+                </item>
+            </argument>
+        </field>
+    </fieldset>
+</form>

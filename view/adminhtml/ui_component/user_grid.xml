@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">user_grid.user_grid_data_source</item>
+        </item>
+    </argument>
+    <settings>
+        <buttons>
+            <button name="add">
+                <url path="*/*/edit"/>
+                <class>primary</class>
+                <label translate="true">Create User</label>
+            </button>
+        </buttons>
+        <spinner>giftcards_columns</spinner>
+        <deps>
+            <dep>user_grid.user_grid_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="user_grid_data_source" component="Magento_Ui/js/grid/provider">
+        <settings>
+            <storageConfig>
+                <param name="indexField" xsi:type="string">user_id</param>
+            </storageConfig>
+            <updateUrl path="mui/index/render"/>
+        </settings>
+        <aclResource>Acx_GiftCard::management</aclResource>
+        <dataProvider class="Acx\UiForm\Ui\Component\DataProvider" name="user_grid_data_source">
+            <settings>
+                <requestFieldName>user_id</requestFieldName>
+                <primaryFieldName>user_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <listingToolbar name="listing_top">
+        <settings>
+            <sticky>true</sticky>
+        </settings>
+        <bookmark name="bookmarks"/>
+        <columnsControls name="columns_controls"/>
+        <filterSearch name="fulltext"/>
+        <paging name="listing_paging"/>
+    </listingToolbar>
+    <columns name="giftcards_columns">
+        <column name="user_id">
+            <settings>
+                <filter>textRange</filter>
+                <label translate="true">ID</label>
+                <sorting>asc</sorting>
+            </settings>
+        </column>
+        <column name="user_name">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">User Name</label>
+            </settings>
+        </column>
+        <column name="user_role">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">User Role</label>
+            </settings>
+        </column>
+        <column name="user_address">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">User Address</label>
+            </settings>
+        </column>
+        <actionsColumn name="actions" class="Acx\UiForm\Ui\Component\Listing\Column\UserActions">
+            <settings>
+                <indexField>user_id</indexField>
+            </settings>
+        </actionsColumn>
+    </columns>
+</listing>

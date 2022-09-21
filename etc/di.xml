@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Agile Codex
+ * @copyright Agile Codex Ltd (https://www.agilecodex.com)
+ * @package Acx_Number
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <preference for="Acx\UiForm\Api\Data\UserInterface"
+                type="Acx\UiForm\Model\User"/>
+
+    <preference for="Acx\UiForm\Api\UserRepositoryInterface"
+                type="Acx\UiForm\Model\UserRepository"/>
+
+    <virtualType name="Acx\UiForm\Model\ResourceModel\User\Grid\VirtualCollection"
+                 type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">uiform_user</argument>
+            <argument name="resourceModel" xsi:type="string">Acx\UiForm\Model\ResourceModel\User</argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="user_grid_data_source" xsi:type="string">
+                    Acx\UiForm\Model\ResourceModel\User\Grid\VirtualCollection
+                </item>
+            </argument>
+        </arguments>
+    </type>
+</config>

@@ -1,0 +1,28 @@
+{
+    "name": "acx/uiform",
+    "description": "magento 2 Extension example for UI Form",
+    "require": {
+        "php": "~7.3.0||~7.4.0",
+        "magento/module-checkout": "100.0.*",
+        "magento/module-payment": "100.0.*",
+        "magento/framework": "100.0.*"
+    },
+    "authors": [
+        {
+            "name": "Agile Codex Ltd.",
+            "email": "support@agilecodex.com",
+            "homepage": "https://www.agilecodex.com/",
+            "role": "Developer"
+        }
+    ],
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Acx\\UiForm\\": ""
+        }
+    }
+}
