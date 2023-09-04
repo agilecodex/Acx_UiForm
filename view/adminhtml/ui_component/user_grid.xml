@@ -13,7 +13,7 @@
                 <label translate="true">Create User</label>
             </button>
         </buttons>
-        <spinner>giftcards_columns</spinner>
+        <spinner>user_grid_columns</spinner>
         <deps>
             <dep>user_grid.user_grid_data_source</dep>
         </deps>
@@ -42,7 +42,7 @@
         <filterSearch name="fulltext"/>
         <paging name="listing_paging"/>
     </listingToolbar>
-    <columns name="giftcards_columns">
+    <columns name="user_grid_columns">
         <column name="user_id">
             <settings>
                 <filter>textRange</filter>
